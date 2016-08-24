@@ -10,6 +10,7 @@
 * 60f/s reflow
 * mobile development, just emulation
 * Screencast and testing on real mobile devices
+
 ### Second session
 * Memory management, memory leaks
 * Performance optimization
@@ -22,10 +23,10 @@
 * promise
 * es6, arrow
 * transpillers, naming convention
-* tools fro development
+* tools for development
 * project structure
 * CSS 2/3 (flex box),  sass, bootstrap (jqrid?)
-* modilarity -  AMD, requireJS, commonJS
+* modularity -  AMD, requireJS, commonJS, SystemJS
 * jQuery / jQuery UI (unknown features), plugins
 * template engines
 
@@ -36,5 +37,6 @@
 * best practices + useful snippets
 
 #### tools
-* webpack - hot reload
-* babel
+* grunt, gulp, webpack - hot reload
+* babel, babelify
+* livereload ...
