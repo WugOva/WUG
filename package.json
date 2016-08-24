@@ -1,0 +1,23 @@
+{
+  "name": "wug-experimental-package",
+  "version": "1.0.0",
+  "description": "This package represents examples of different front-end technolgies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WugOva/WUG.git"
+  },
+  "author": "WUG-community",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WugOva/WUG/issues"
+  },
+  "homepage": "https://github.com/WugOva/WUG#readme",
+  "dependencies": {
+  },
+  "devDependencies" : {
+  }
+}
