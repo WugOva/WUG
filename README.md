@@ -6,5 +6,6 @@ usefull techniques and any other stuff which may increase your
 efficiency and improve your web skill.
 
 ## Share and ask
-Do you have anything to share or ask? [https://github.com/WugOva/WUG/issues/6](Here) is
-the right place
+Do you have anything to share or ask? [Here](https://github.com/WugOva/WUG/issues/6) is
+that right place. This is not a place just for WUG so everybody can contribute here. 
+But ask solid and reasonable question ;) 
