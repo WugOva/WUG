@@ -20,7 +20,7 @@
 #### workshop
 
 * jquery, and new features
-* promise
+* promise/observable, reactive extensions, functional programming???
 * es6, arrow
 * transpillers, naming convention
 * tools for development
