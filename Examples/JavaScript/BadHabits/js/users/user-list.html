@@ -1,0 +1,44 @@
+<button class="btn btn-primary margin" data-toggle="modal" data-target="#createUserDialog">Create new user</button>
+
+<div class="list-group">
+    <div class="list-group-item list-group-item-info">
+        <div class="row">
+            <h3 class="col-xs-11">User list</h3>       
+        </div>
+    </div>
+    {{for users}}
+        <a href="" class="list-group-item" id="{{:id}}">
+            <div class="row">
+                
+                <div class="col-xs-11">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <img src="https://placekitten.com/200/20{{:id}}" alt="">
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-4"><b>First Name</b></div> 
+                                <div class="col-xs-8">{{:firstName}}</div>                        
+                            </div> 
+                            <div class="row">
+                                <div class="col-xs-4"><b>Last Name</b></div> 
+                                <div class="col-xs-8">{{:lastName}}</div>                        
+                            </div>
+                            <div class="row detail" style="display: none">
+                                <br><br>
+                                <div class="col-xs-4"><b>Full Name</b></div> 
+                                <div class="col-xs-8"><input class="fullName" type="text" value="{{:fullName}}"></div>                        
+                                
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="col-xs-1 text-right">
+                    <i class="glyphicon glyphicon-remove remove"></i>
+                </div>
+            </div>
+            
+        </a>
+    {{/for}}
+</div>
