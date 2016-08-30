@@ -1,0 +1,28 @@
+<form class="modal fade" tabindex="-1" role="dialog" id="createUserDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Create new user</h4>
+        </div>
+        <div class="modal-body">
+
+        <form>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input name="firstName" autocomplete="off" type="text" class="form-control" id="firstName" placeholder="type your name ..." required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input name="lastName" autocomplete="off" type="text" class="form-control" id="lastName" placeholder="type your surname ..." required>
+            </div>
+        </form>          
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="createUser">Create</button>
+        </div>
+        </div>
+    </div>
+</form>

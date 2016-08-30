@@ -1,0 +1,12 @@
+.padding {
+    padding: 10px;
+}
+
+.margin {
+    margin: 10px;
+}
+
+img {
+    width: 50px;
+    border-radius: 50%;
+}
