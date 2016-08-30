@@ -1,6 +1,6 @@
 # Workshop for WUG
 
-## Theoretical examples
+## THEORETICAL EXAMPLES
 A participant will get familiar with following principles and technologies:
 
 ## Day 1 (2-3 hours)
@@ -27,9 +27,10 @@ A participant will get familiar with following principles and technologies:
     * browserify
     * webpack
     * lite-server
-  * mock data
-    * create simple in memmory back end
-    * fetch data with postman
+* mock and fetch data
+  * create simple in memmory back end (with express route API)
+  * fetch data with postman
+  * how to leverage Promise/Observable for async request call
 
 ## Day 3 (3-4 hours)
 **Knowledge level - low**    
@@ -38,7 +39,7 @@ A participant will get familiar with following principles and technologies:
   * prepare solution for task automation
 
 **Knowledge level - higher**
-* examples of JS framework features
+* examples of JS principles and framework features
   * modularity
   * design patterns
   * separation of concerns
@@ -49,7 +50,7 @@ A participant will get familiar with following principles and technologies:
   * routing
 
 **Knowledge level - high**
-* create simple web app with CRUD features with angular and jQuery :
+* create simple RESTfull web app with CRUD features with Angular and jQuery :
   * initial file structure
   * fetch hardcoded data from service 
   * data bind to list view (use bootstrap classes) 
@@ -57,8 +58,10 @@ A participant will get familiar with following principles and technologies:
   * implement routing to display detail consumed from back end service
   * alter data detail and send them back to the server (use built in validation)
 
-## Practical sessions
-Implementation a web application capable of manage list of users with CRUD features. 
+---
+
+## PRACTICAL SESSION
+Each participant will implement a web application capable of manage list of users with CRUD features. There will be a public API accessible to get and store data. 
 
 ## Day 4
 
@@ -76,7 +79,7 @@ implementation will cover:
 * reausability
 * naming convetions
 * project structuring
-* reading and saving to external service
+* reading and saving to external end point
 * error handling
 * UI features, lists, dialogs ...
 

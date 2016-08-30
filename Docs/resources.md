@@ -3,6 +3,7 @@ Here you can find some interesting stuff to learn.
 
 #### Angular 2
 * [ZONES IN ANGULAR 2](http://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html)
+
 ---
 
 #### Common
