@@ -1,0 +1,39 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "first": "Jack",
+            "last": "Nicholson",
+            "email": "Jack.Nicholson@test.me",
+            "rating": 2
+        },
+        {
+            "id": 2,
+            "first": "Robert",
+            "last": "De Niro",
+            "email": "Robert.DeNiro@test.me",
+            "rating": 3
+        },
+        {
+            "id": 3,
+            "first": "Julia",
+            "last": "Roberts",
+            "email": "Julia.Roberts@test.me",
+            "rating": 4
+        },
+        {
+            "id": 4,
+            "first": "Meryl",
+            "last": "Streep",
+            "email": "Meryl.Streep@test.me",
+            "rating": 1
+        },
+        {
+            "id": 5,
+            "first": "Sigourney",
+            "last": "Weaver",
+            "email": "Sigourney.Weaver@test.me",
+            "rating": 5
+        }                                                
+    ]
+}
