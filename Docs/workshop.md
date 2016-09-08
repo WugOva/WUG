@@ -5,7 +5,7 @@ A participant will get familiar with following principles and technologies:
 
 ## Day 1 (2-3 hours)
 **Knowledge level - low**
-* future terms
+* terminology
   * transpiller 
   * polyfill
   * minification/uglification
@@ -24,7 +24,7 @@ A participant will get familiar with following principles and technologies:
   * node.js and ecosystem, simplification with tools such as:
     * gulp
     * babel
-    * browserify
+    * systemjs
     * webpack
     * lite-server
 * mock and fetch data

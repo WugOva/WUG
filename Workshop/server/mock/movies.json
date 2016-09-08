@@ -1,0 +1,52 @@
+{
+    "movies": [
+        {
+            "name": "The Last Tycoon",
+            "users": [1,2] 
+        },
+        {
+            "name": "The Shining",
+            "users": [1]
+        },
+        {
+            "name": "One Flew Over the Cuckoo's Nest",
+            "users": [1]
+        },
+        {
+            "name": "Taxi Driver",
+            "users": [2]
+        },
+        {
+            "name": "The Deer Hunter",
+            "users": [2]
+        },
+        {
+            "name": "Pretty Woman",
+            "users": [3]
+        },
+        {
+            "name": "Notting Hill",
+            "users": [3]
+        },
+        {
+            "name": "The Devil Wears Prada",
+            "users": [4]
+        },
+        {
+            "name": "The Iron Lady",
+            "users": [4]
+        },
+        {
+            "name": "Alien",
+            "users": [5]
+        },
+        {
+            "name": "Avatar",
+            "users": [5]
+        },
+        {
+            "name": "Ghostbusters",
+            "users": [5]
+        }
+    ]
+}

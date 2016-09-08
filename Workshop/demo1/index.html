@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <theader>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Movies</th>
+                </tr>
+            </theader>
+            <tbody id="user-list">
+                <tr>
+                    <td colspan="3">Loading...</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <form id="form" style="display: none">
+                    <h2 class="user-detail">User Detail</h2>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">User</label>
+                        <h4 id="user-name">John</h4>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input name="email" id="user-email" type="email" class="form-control" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Rating</label>
+                        <div id="rating-ui"></div>
+                        <input type="hidden" id="rating" name="rating">
+                    </div>
+                    <button type="submit" class="btn btn-success">Change</button>
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        // create global namespace
+        window.DemoApp = {};
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/user-service.js"></script>
+</body>
+
+</html>
