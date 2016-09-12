@@ -9,6 +9,7 @@
         var $userList = $('#user-list');
         var $form = $('#form');
         var selectedUser;
+        var removeId;
 
         function createRating(rating) {
             var starFull = '<span class="star full">☆</span>';
@@ -39,6 +40,24 @@
                 $email.val(selectedUser.email);
                 $rating.empty().append(createRating(selectedUser.rating));
 
+            });
+
+            $userList.on('click', '.remove-user', function () {
+                $('#myModal').modal();
+                removeId = this.id;
+                return false;
+            });
+
+
+            $('#remove-confirm').click(function() {
+                 window.DemoApp.userService.removeUser(removeId)
+                    .then(function() {
+                        $('#myModal').modal('hide');
+                        $form.hide();
+                        selectedUser = null;
+                    })
+                    .then(loadUserList);
+                return false;
             });
 
             $form.submit(function (event) {
@@ -77,7 +96,15 @@
                 });
 
             });
+
+            $form.on('click', '.hide-form', function() {
+                $form.hide();
+                selectedUser = null;
+                $('tr').removeClass('table-info');
+                return false;
+            });
         }
+        
         bindEvents();
 
         // 1. get user list data
@@ -90,6 +117,7 @@
                     '<td>' + user.last + '</td>' +
                     '<td>' + user.email + '</td>' +
                     '<td>' + user.movies.map(function (movie) { return movie.name; }).join(', ') + '</td>' +
+                    '<td><button data-toggle="modal" data-target="#myModal" class="btn btn-danger remove-user" id=' + user.id + '>x</button></td>' +
                     '</tr>'
                 ).data({ user: user });
 
@@ -99,6 +127,8 @@
         }
 
         function loadUserList() {
+            selectedUser = null;
+
             $.when(
                 window.DemoApp.userService.getUserList(),
                 window.DemoApp.userService.getMovies()

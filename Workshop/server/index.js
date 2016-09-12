@@ -39,6 +39,18 @@ app.post('/updateUser', function (req, res) {
     res.json({ success: 'ok' });
 });
 
+app.delete('/deleteUser', function (req, res) {
+    var userId = req.body.userId;
+
+    users.users.forEach(function(user, index) {
+        if (user.id == userId) {
+            users.users.splice(index, 1);
+        }
+    });
+
+    res.json({ success: 'ok' });
+});
+
 app.listen(port, function () {
     console.log('Example app listening on port ' + port);
 });
