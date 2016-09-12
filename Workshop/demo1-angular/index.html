@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="demo1">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" ng-controller="UserListController as vm">
         <table class="table table-striped">
             <theader>
                 <tr>
@@ -21,13 +21,13 @@
                 </tr>
             </theader>
             <tbody id="user-list">
-                <tr>
-                    <td colspan="3">Loading...</td>
+                <tr ng-repeat="user in vm.userData">
+                    <td>{{user.first}}</td>
+                    <td>{{user.last}}</td>
                 </tr>
             </tbody>
         </table>
 
-        <!-- user form -->
         <div class="row" id="form" style="display: none">
             <h2 class="user-detail">User Detail</h2>
             <hr>
@@ -75,6 +75,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     <script>
         // create global namespace
