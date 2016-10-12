@@ -9,15 +9,13 @@ A participant will get familiar with following principles and technologies:
   * file structure
   * naming convention
   * modularity
-  * single responsibility principle
-  * separation of concerns
+  * Promise
 
 ## Day 2 (2 hours)
 **Knowledge level - low**
 * recomended design patterns inside JS
   * singleton
   * module revealing pattern
-  * MV* pattern
 * implement simple web app with REST API (get,post)
   * increase productivity with jQuery
   * initial setup, integrate bootstrap
