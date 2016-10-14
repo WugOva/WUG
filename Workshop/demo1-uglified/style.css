@@ -1,0 +1,17 @@
+.table tbody tr {
+    cursor: pointer;
+}
+
+.user-detail {
+    padding: 30px 0;
+}
+
+#rating-ui span {
+    cursor: pointer;
+}
+
+#rating-ui span:hover:before,
+#rating-ui span.full:before {
+   content: "\2605";
+   position: absolute;
+}
