@@ -1,0 +1,10 @@
+{
+  "name": "WebUIGroup",
+  "version": "1.0.0",
+  "devDependencies": {
+    "http-server": "^0.8.0"
+  },
+  "scripts": {
+    "start": "http-server -a localhost -p 68"
+  }
+}
