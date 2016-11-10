@@ -6,10 +6,10 @@ A participant will get familiar with following principles and technologies:
 ## Day 1 (2 hours)
 **Knowledge level - low**
 * general principles and knowledge base
-  * file structure
-  * naming convention
-  * modularity
-  * Promise
+  * file structure - RS
+  * naming convention JS
+  * modularity JS
+  * Promise RS
 
 ## Day 2 (2 hours)
 **Knowledge level - low**
