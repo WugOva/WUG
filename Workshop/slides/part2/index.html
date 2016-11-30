@@ -28,27 +28,83 @@
 			</section>
 
 			<section>
-				<h2>Design patterns</h2>
+				<h2>Design <b>/</b> Module patterns</h2>
 				<p>
 					Design pattern is a general repeatable solution to a commonly occurring problem in software design.
 				</p>
 
 				<ul>
 					<li class="fragment">
-						Most often used
+						Recommended
 						<ul>
-							<li class="fragment">Singleton</li>
-							<li class="fragment">Module pattern</li>
-							<li class="fragment">Module revealing pattern</li>
-							<li class="fragment">Observer</li>
+							<li class="fragment">IIFE</li>
+							<li class="fragment">Revealing Module Pattern</li>
+							<li class="fragment">ES6 modules</li>
 						</ul>
 					</li>
 				</ul>
 			</section>
 
 			<section>
-				<h2>Singleton</h2>
+				<h2>IIFE</h2>
+				<div>
+					<h4>
+						<span class="fragment"><b>I</b>mmediately</span>
+						<span class="fragment"><b>I</b>nvoked</span>
+						<span class="fragment"><b>F</b>unction</span>
+						<span class="fragment"><b>E</b>xpression</span>
+					</h4>
+					<p>
+						Anonymous function, Invoked when declaed, Provides encapsulation, Reduces global scope pollution.
+					</p>
+				</div>
+
+			</section>
+
+			<section>
+				<h2>IIFE example</h2>
+
+                <h6>simple usage</h6>
+				<pre><code data-trim contenteditable>
+(function() {
+    // ... implementation here
+})();
+					</code></pre>
+
+                <h6 class="fragment">advance usage</h6>
+				<pre class="fragment"><code data-trim contenteditable>
+
+(function($) {
+    var privateId = 123;
+
+    console.log($ === jQuery); // true
+
+})(jQuery);
+
+console.log(privateId); // privateId is not defined
+					</code></pre>
+			</section>			
+
+			<section>
+				<h2>Revealing Module Pattern</h2>
 				<p>
+					It define all of our functions and variables in the private scope and return an anonymous object with pointers to the private functionality we wished to reveal as public.		
+				</p>
+				<ul>
+					<li class="fragment">
+						implement by
+						<ul>
+							<li class="fragment">Singleton</li>
+							<li class="fragment">Constructor functions</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Rev. Module Pattern</h2>
+				<p>
+					by Singleton<br><br>
 					The Singleton Pattern limits the number of instances of a particular object to just one. This single instance is called the singleton.
 				</p>
 				<pre><code data-trim contenteditable>
@@ -60,13 +116,7 @@ var Singleton = (function vm () {
 })()
 					</code></pre>
 			</section>
-
-			<section>
-				<h2>Module pattern</h2>
-				<p>
-					The Singleton Pattern limits the number of instances of a particular object to just one. This single instance is called the singleton.
-				</p>
-			</section>
+			
 
 			<section>
 				<h2>More about <b>reveal.js</b></h2>
