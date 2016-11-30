@@ -1,27 +1,16 @@
 'use strict';
 
 (function () {
-
     function domReady() {
+
         console.log('DOM ready');
 
-        // 1. bind events
         var $userList = $('#user-list');
         var $form = $('#form');
         var selectedUser;
         var removeId;
 
-        function createRating(rating) {
-            var starFull = '<span class="star full">☆</span>';
-            var star = '<span class="star">☆</span>';
-            var $output = $("<div/>");
-            
-            for (var i = 0; i < 5; i++) {
-                $output.append(i < rating ? starFull : star);
-            }
-            return $output.append('<span> ' + rating + '/5 </span>');
-        }
-
+        // 1. bind events
         function bindEvents() {
             $userList.on('click', 'tr', function () {
                 var $row = $(this);
@@ -30,16 +19,14 @@
                 $row.addClass('table-info');
 
                 selectedUser = $row.data().user;
+                console.log('selectedUser', selectedUser);
 
                 $form.show()
                 var $name = $form.find('#user-name');
                 var $email = $form.find('#user-email');
-                var $rating = $form.find('#rating-ui');
 
                 $name.text(selectedUser.first + " " + selectedUser.last);
                 $email.val(selectedUser.email);
-                $rating.empty().append(createRating(selectedUser.rating));
-
             });
 
             $userList.on('click', '.remove-user', function () {
@@ -49,9 +36,9 @@
             });
 
 
-            $('#remove-confirm').click(function() {
-                 window.DemoApp.userService.removeUser(removeId)
-                    .then(function() {
+            $('#remove-confirm').click(function () {
+                window.DemoApp.userService.removeUser(removeId)
+                    .then(function () {
                         $('#myModal').modal('hide');
                         $form.hide();
                         selectedUser = null;
@@ -63,7 +50,7 @@
             $form.submit(function (event) {
                 $form.hide();
                 var data = {};
-                
+
                 var $inputs = $form.find(':input');
                 $inputs.each(function () {
                     if (this.name) {
@@ -77,37 +64,15 @@
                 return false;
             });
 
-            $form.on('click', '.star', function() {
-                var $star = $(this);
-                // update model
-                selectedUser.rating = $star.index();
-                
-                // update ui
-                var $rating = $('#rating');                
-                var $stars = $star.parent().find('.star');
-                
-                $stars.removeClass('full');
-                $rating.val(selectedUser.rating + 1);
-                
-                $($stars).each(function(index, star) {
-                    if (index <= selectedUser.rating) {
-                        $(this).addClass('full');
-                    }
-                });
-
-            });
-
-            $form.on('click', '.hide-form', function() {
+            $form.on('click', '.hide-form', function () {
                 $form.hide();
                 selectedUser = null;
                 $('tr').removeClass('table-info');
                 return false;
             });
         }
-        
         bindEvents();
 
-        // 1. get user list data
         function renderTable(userData) {
             $userList.empty();
             userData.forEach(function (user) {
@@ -122,7 +87,6 @@
                 ).data({ user: user });
 
                 $userList.append($row);
-                
             });
         }
 
@@ -133,17 +97,28 @@
                 window.DemoApp.userService.getUserList(),
                 window.DemoApp.userService.getMovies()
             ).then(function (users, movies) {
+                console.log('%cusers', 'color: red; font-size: 2em', JSON.parse(JSON.stringify(users)));
+                console.log('%cmovies', 'color: red; font-size: 2em', movies);
+
                 return users.map(function (user) {
-                    user.movies = movies.filter(function (movie) { return movie.users.indexOf(user.id) >= 0; });
+                    user.movies = movies
+                        .filter(function (movie) {
+                            return movie.users.indexOf(user.id) >= 0;
+                        })
+                        .map(function (movie) {
+                            return { name: movie.name };
+                        });
                     return user;
                 })
             }).then(function (userData) {
                 // 2. bind the data into view
                 // 3. render the view
+                console.log('%caggregated data', 'color: tomato; font-size: 2em', userData);
                 renderTable(userData);
-            });
+            }).catch(function () {
+                alert('error');
+            })
         }
-
         loadUserList();
 
     }
@@ -151,4 +126,3 @@
     $(domReady);
 
 })(jQuery);
-
