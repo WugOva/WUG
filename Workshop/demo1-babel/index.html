@@ -95,12 +95,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    
+    <script src="node_modules/systemjs/dist/system.js"></script>
     <script>
-        // create global namespace
-        window.DemoApp = {};
+        System.import('build/main.js');
     </script>
-    <script src="js/main.js"></script>
-    <script src="js/user-service.js"></script>
 </body>
 
 </html>

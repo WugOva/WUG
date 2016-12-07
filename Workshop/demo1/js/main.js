@@ -5,10 +5,27 @@
 
         console.log('DOM ready');
 
+        // custom template
+        _.templateSettings = {
+            interpolate: /\{\{=(.+?)\}\}/g,
+            evaluate: /\{\{(.+?)\}\}/g,
+        };
+
         var $userList = $('#user-list');
         var $form = $('#form');
         var selectedUser;
         var removeId;
+
+        function createRating(rating) {
+            var starFull = '<span class="star full">☆</span>';
+            var star = '<span class="star">☆</span>';
+            var $output = $("<div/>");
+            
+            for (var i = 0; i < 5; i++) {
+                $output.append(i < rating ? starFull : star);
+            }
+            return $output.append('<span> ' + rating + '/5 </span>');
+        }
 
         // 1. bind events
         function bindEvents() {
@@ -24,9 +41,11 @@
                 $form.show()
                 var $name = $form.find('#user-name');
                 var $email = $form.find('#user-email');
+                var $rating = $form.find('#rating-ui');
 
                 $name.text(selectedUser.first + " " + selectedUser.last);
                 $email.val(selectedUser.email);
+                $rating.empty().append(createRating(selectedUser.rating));
             });
 
             $userList.on('click', '.remove-user', function () {
@@ -47,7 +66,7 @@
                 return false;
             });
 
-            $form.submit(function (event) {
+            $form.on('submit', function (event) {
                 $form.hide();
                 var data = {};
 
@@ -64,6 +83,26 @@
                 return false;
             });
 
+            $form.on('click', '.star', function() {
+                var $star = $(this);
+                // update model
+                selectedUser.rating = $star.index();
+                
+                // update ui
+                var $rating = $('#rating');                
+                var $stars = $star.parent().find('.star');
+                
+                $stars.removeClass('full');
+                $rating.val(selectedUser.rating + 1);
+                
+                $($stars).each(function(index, star) {
+                    if (index <= selectedUser.rating) {
+                        $(this).addClass('full');
+                    }
+                });
+                $star.parent().find('span:last').text(selectedUser.rating + 1 + '/5');
+            });
+
             $form.on('click', '.hide-form', function () {
                 $form.hide();
                 selectedUser = null;
@@ -75,18 +114,14 @@
 
         function renderTable(userData) {
             $userList.empty();
-            userData.forEach(function (user) {
-                var $row = $(
-                    '<tr>' +
-                    '<td>' + user.first + '</td>' +
-                    '<td>' + user.last + '</td>' +
-                    '<td>' + user.email + '</td>' +
-                    '<td>' + user.movies.map(function (movie) { return movie.name; }).join(', ') + '</td>' +
-                    '<td><button data-toggle="modal" data-target="#myModal" class="btn btn-danger remove-user" id=' + user.id + '>x</button></td>' +
-                    '</tr>'
-                ).data({ user: user });
 
-                $userList.append($row);
+            var userDataContent = _.template($('#user-data-content').html());
+            var toRender = userDataContent({userData: userData});
+            $userList.append(toRender);
+
+            // apply metadata to each row
+            $userList.find('tr').each(function(index) {
+                $(this).data({ user: userData[index] });
             });
         }
 
@@ -97,9 +132,6 @@
                 window.DemoApp.userService.getUserList(),
                 window.DemoApp.userService.getMovies()
             ).then(function (users, movies) {
-                console.log('%cusers', 'color: red; font-size: 2em', JSON.parse(JSON.stringify(users)));
-                console.log('%cmovies', 'color: red; font-size: 2em', movies);
-
                 return users.map(function (user) {
                     user.movies = movies
                         .filter(function (movie) {
@@ -111,12 +143,13 @@
                     return user;
                 })
             }).then(function (userData) {
-                // 2. bind the data into view
-                // 3. render the view
-                console.log('%caggregated data', 'color: tomato; font-size: 2em', userData);
+                return userData.sort(function(a, b) {
+                    return b.rating - a.rating;
+                });
+            }).then(function (userData) {
                 renderTable(userData);
-            }).catch(function () {
-                alert('error');
+            }).catch(function (error) {
+                console.error('error', error);
             })
         }
         loadUserList();
