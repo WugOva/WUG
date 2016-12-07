@@ -11,7 +11,16 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.0.0/css/theme/sky.css" id="theme">
 	<!-- Code syntax highlighting -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.0.0/lib/css/zenburn.css">
+	<style>
+		.list-style-none {
+			list-style: none !important;
+		}
+		.fragment {
+			outline: none;
+		}
+	</style>
 </head>
+
 
 <body>
 
@@ -28,7 +37,27 @@
 			</section>
 
 			<section>
-				<h2>Design <b>/</b> Module patterns</h2>
+				<h2>Agenda</h2>
+				<div>
+					<ul>
+						<li class="fragment">Design patterns</li>
+						<li class="fragment">Code refactoring - ES6fying</li>
+						<li class="fragment">
+							Module loaders/bundlers
+							<ul>
+								<li class="fragment">Babel</li>
+								<li class="fragment">Systemjs</li>
+								<li class="fragment">Webpack</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+			</section>
+
+
+			<section>
+				<h2>Design patterns</h2>
 				<p>
 					Design pattern is a general repeatable solution to a commonly occurring problem in software design.
 				</p>
@@ -39,7 +68,7 @@
 						<ul>
 							<li class="fragment">IIFE</li>
 							<li class="fragment">Revealing Module Pattern</li>
-							<li class="fragment">ES6 modules</li>
+							<li class="fragment"><i>ES6 modules</i></li>
 						</ul>
 					</li>
 				</ul>
@@ -65,24 +94,31 @@
 				<h2>IIFE example</h2>
 
                 <h6>simple usage</h6>
-				<pre><code data-trim contenteditable>
+                <div class="fragment" data-markdown contenteditable><pre><code>
+                    <script type="text/template">
+```javascript
 (function() {
-    // ... implementation here
+	// ... implementation here
 })();
-					</code></pre>
+```
+                    </script>
+                </code></pre></div>
 
                 <h6 class="fragment">advance usage</h6>
-				<pre class="fragment"><code data-trim contenteditable>
-
+                <div class="fragment" data-markdown contenteditable><pre><code>
+                    <script type="text/template">
+```javascript
 (function($) {
     var privateId = 123;
-
-    console.log($ === jQuery); // true
-
+	// true
+    console.log($ === jQuery);
 })(jQuery);
 
-console.log(privateId); // privateId is not defined
-					</code></pre>
+// privateId is not defined
+console.log(privateId);
+```
+                    </script>
+                </code></pre></div>
 			</section>			
 
 			<section>
@@ -94,7 +130,7 @@ console.log(privateId); // privateId is not defined
 					<li class="fragment">
 						implement by
 						<ul>
-							<li class="fragment">Singleton</li>
+							<li><i>Singleton</i></li>
 							<li class="fragment">Constructor functions</li>
 						</ul>
 					</li>
@@ -107,23 +143,249 @@ console.log(privateId); // privateId is not defined
 					by Singleton<br><br>
 					The Singleton Pattern limits the number of instances of a particular object to just one. This single instance is called the singleton.
 				</p>
-				<pre><code data-trim contenteditable>
 
-var Singleton = (function vm () {
-  return function add(a, b) {
-    return a + b;
+<div class="fragment" data-markdown contenteditable><pre><code>
+                    <script type="text/template">
+```javascript
+// definition
+var calculator = function() {
+  function add() { /* ... */ }
+  function subtract() { /* ... */ }
+  return {
+    add: add,
+	subtract: subtract
   };
-})()
-					</code></pre>
+}();
+// usage
+calculator.add();
+```
+                    </script>
+                </code></pre></div>
 			</section>
-			
 
 			<section>
-				<h2>More about <b>reveal.js</b></h2>
+				<h2>Rev. Module Pattern</h2>
 				<p>
-					you can start <a href="https://github.com/hakimel/reveal.js">here</a>.
+					by Constructor<br><br>					
+				</p>
+
+<div class="fragment" data-markdown contenteditable><pre><code>
+                    <script type="text/template">
+```javascript
+// definition
+var Calculator = function() {
+  function add() { /* ... */ }
+  function subtract() { ... }
+  return {
+    add: add,
+	subtract: subtract
+  };
+}
+// usage
+var simpleCalc = new Calculator();
+simpleCalc.add();
+```
+                    </script>
+                </code></pre></div>
+			</section>			
+
+
+			<section>
+				<h2>Babel</h2>
+				<div>
+					<p>
+						Babel is a JavaScript compiler which allow to use next generation JavaScript, today.
+					</p>
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+```javascript
+// installation via npm
+npm install babel-cli
+```
+                    </script>
+                </code></pre></div>
+
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+
+```javascript
+// install preset
+npm install babel-preset-es2015
+```
+                    </script>
+                </code></pre></div>
+
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+
+```javascript
+// use it
+babel js --presets es2015 --out-dir build
+```
+                    </script>
+                </code></pre></div>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h2>Systemjs</h2>
+				<div>
+					<p>
+						Universal dynamic module loader - loads ES6 modules, AMD, CommonJS and global scripts in the browser and NodeJS.
+						<ul class="list-style-none">
+							<li>Official site <a href="https://github.com/systemjs/systemjs">https://github.com/systemjs/systemjs</a></li>
+						</ul>
+					</p>
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+```javascript
+// installation via npm
+npm install systemjs --save-dev
+```
+                    </script>
+                </code></pre></div>
+
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+
+```javascript
+// load entry point
+System.import('main.js');
+```
+                    </script>
+                </code></pre></div>
+				</div>
+			</section>
+
+			<section>
+				<h2>ES6fying</h2>
+				<p>
+					<ul>
+						<li class="fragment">Modules - import/export</li>
+						<li class="fragment">Arrow functions</li>
+						<li class="fragment">Template literals</li>
+						<li class="fragment">Multiline string</li>
+						<li class="fragment">Block scope, let, const</li>
+					</ul>
 				</p>
 			</section>
+
+			<section>
+				<h2>ES6fying</h2>
+				<p>
+					DEMO
+				</p>
+			</section>
+
+			<section>
+				<h2>Webpack</h2>
+				<p>
+					Webpack is module bundlers which takes modules with dependencies and generates static assets representing those modules.
+					
+					<ul class="list-style-none">
+						<li>Official site <a href="https://webpack.github.io/">https://webpack.github.io/</a></li>
+					</ul>
+				</p>
+				<div class="fragment">
+					<p><b>Webpack features</b></p>						
+					<ul>
+						<li>Module formats AMD, CommonJS, ES2015</li>
+						<li class="fragment">Bundle JS, CSS, Images</li>
+						<li class="fragment">Use loaders to preprocess resource</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2>Webpack setup</h2>
+
+				<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+
+```javascript
+// install webpack
+npm install webpack --save-dev // -g
+```
+                    </script>
+                </code></pre></div>
+
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+```javascript
+// install babel
+npm install babel-cli --save-dev
+```
+                    </script>
+                </code></pre></div>
+
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+```javascript
+// install babel loader + babel core
+npm install babel-loader babel-core --save-dev
+```
+                    </script>
+                </code></pre></div>
+
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+```javascript
+// install babel ES6 preset
+npm install babel-preset-es2015 --save-dev
+```
+                    </script>
+                </code></pre></div>
+
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+```javascript
+// insatall systemjs
+npm install systemjs --save-dev
+```
+                    </script>
+                </code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2>Webpack usage</h2>
+
+				<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+
+```javascript
+// create webpack.config.js
+module.exports = {
+	entry: './src/app.js',
+	output: {
+		path: './bin',
+		filename: 'app.bundle.js'
+	}
+};
+```
+                    </script>
+                </code></pre></div>
+
+<div class="fragment" data-markdown><pre><code>
+                    <script type="text/template">
+```javascript
+// use it
+./node_modules/.bin/webpack
+```
+                    </script>
+                </code></pre></div>
+
+
+			</section>			
+
+            <section data-background="img/logo.png" data-background-repeat="repeat" data-background-size="100px">
+                <h2><b>Thank You</b></h2>
+                <br />
+                <br />
+                <h3>Questions?</h3>
+            </section>
 
 		</div>
 	</div>
