@@ -1,0 +1,214 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "name": "Vykoupení z věznice Shawshank", 
+            "year": 1994,
+            "score": 95.3,
+            "rating": 90354
+        },
+        {
+            "id": 2,
+            "name": "Forrest Gump", 
+            "year": 1994,	
+            "score": 94.6,
+            "rating": 104263
+        }, 
+        {
+            "id": 3,
+            "name": "Zelená míle", 
+            "year": 1999,	
+            "score": 92.8,
+            "rating": 89448
+        },
+        {
+            "id": 4,
+            "name": "Přelet nad kukaččím hnízdem", 
+            "year": 1975,	
+            "score": 92.7,
+            "rating": 65658
+        },
+        {
+            "id": 5,
+            "name": "Sedm",
+            "year": 1995,
+            "score": 92.3,
+            "rating": 79402
+        },
+        {
+            "id": 6,
+            "name": "Schindlerův seznam", 
+            "year": 1993,	
+            "score": 92.3,
+            "rating": 59820
+        },
+        {
+            "id": 7,
+            "name": "Kmotr", 
+            "year": 1972,	
+            "score": 92.0,
+            "rating": 56159
+        },
+        {
+            "id": 8,
+            "name": "Dvanáct rozhněvaných mužů", 
+            "year": 1957,
+            "score": 91.4,
+            "rating": 29471
+        },
+        {
+            "id": 9,
+            "name": "Nedotknutelní", 
+            "year": 2011,
+            "score": 91.4,
+            "rating": 60011
+        },
+        {
+            "id": 10,
+            "name": "Pelíšky",
+            "year": 1999,
+            "score": 91.0,	
+            "rating": 91397
+        },
+        {
+            "id": 11,
+            "name": "Kmotr II",
+            "year": 1974,
+            "score": 91.0,	
+            "rating": 39146
+        },
+        {
+            "id": 12,
+            "name": "Tenkrát na Západě",
+            "year": 1968,
+            "score": 90.7,	
+            "rating": 43300
+        },
+        {
+            "id": 13,
+            "name": "Terminátor 2: Den zúčtování",
+            "year": 1991,
+            "score": 90.7,	
+            "rating": 67210
+        },
+        {
+            "id": 14,
+            "name": "Pulp Fiction: Historky z podsvětí",
+            "year": 1994,
+            "score": 90.6,	
+            "rating": 86687
+        },
+        {
+            "id": 15,
+            "name": "Mlčení jehňátek",
+            "year": 1991,
+            "score": 90.4,	
+            "rating": 69402
+        },
+        {
+            "id": 16,
+            "name": "Pán prstenů: Společenstvo Prstenu",
+            "year": 2001,
+            "score": 90.3,	
+            "rating": 91428
+        },
+        {
+            "id": 17,
+            "name": "Gran Torino",
+            "year": 2008,
+            "score": 90.2,	
+            "rating": 61667
+        },
+        {
+            "id": 18,
+            "name": "Pán prstenů: Návrat krále",
+            "year": 2003,
+            "score": 90.2,	
+            "rating": 84636
+        },
+        {
+            "id": 19,
+            "name": "Temný rytíř",
+            "year": 2008,
+            "score": 90.1,	
+            "rating": 79399
+        },
+        {
+            "id": 20,
+            "name": "Hodný, zlý a ošklivý",
+            "year": 1966,
+            "score": 90.1,	
+            "rating": 29585
+        },
+        {
+            "id": 21,
+            "name": "Matrix",
+            "year": 1999,
+            "score": 90.1,	
+            "rating": 89204
+        },
+        {
+            "id":22,
+            "name": "Dobyvatelé ztracené archy",
+            "year": 1981,
+            "score": 90.0,	
+            "rating": 59039
+        },
+        {
+            "id": 23,
+            "name": "Rain Man",
+            "year": 1988,
+            "score": 90.0,	
+            "rating": 63033
+        },
+        {
+            "id": 24,
+            "name": "Sedm statečných",
+            "year": 1960,
+            "score": 89.9,	
+            "rating": 41009
+        },
+        {
+            "id": 25,
+            "name": "Rivalové",
+            "year": 2013,
+            "score": 89.9,	
+            "rating": 42057
+        },
+        {
+            "id": 26,
+            "name": "Podraz",
+            "year": 1973,
+            "score": 89.8,	
+            "rating": 27201
+        },
+        {
+            "id": 27,
+            "name": "Vyšší princip",
+            "year": 1960,
+            "score": 89.7,
+            "rating": 25112
+        },
+        {
+            "id": 28,
+            "name": "Vetřelci",
+            "year": 1986,
+            "score": 89.6,
+            "rating": 48998
+        },
+        {
+            "id": 29,
+            "name": "Vetřelec",
+            "year": 1979,
+            "score": 89.6,
+            "rating": 57325
+        },
+        {
+            "id": 30,
+            "name": "Indiana Jones a Poslední křížová výprava",
+            "year": 1989,
+            "score": 89.5,
+            "rating": 61010
+        }
+    ]        
+}
