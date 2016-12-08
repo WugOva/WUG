@@ -12269,7 +12269,12 @@
 	    }, {
 	        key: 'onDescriptionChanged',
 	        value: function onDescriptionChanged(movieId, description) {
-	            return this.movieService.updateMovieDescription(movieId, description);
+	            var _this5 = this;
+
+	            this.busy(true);
+	            return this.movieService.updateMovieDescription(movieId, description).then(function () {
+	                _this5.busy(false);
+	            });
 	        }
 	    }]);
 

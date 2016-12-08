@@ -60,7 +60,9 @@ app.get('/movies/:id', function (req, res) {
         
         var data = getMovieData(movieId);        
         if (data) {
-            res.jsonp({success: true, data: data});
+            setTimeout(function() {
+                res.jsonp({success: true, data: data});
+            }, 1000);
         } else {
             res.jsonp({success: false, msg: 'movie not found'});
         }
@@ -71,7 +73,9 @@ app.get('/movies/:id', function (req, res) {
         var data = getMovieData(movieId);        
         if (data) {
             data.desc = req.body.description;
-            res.json({ success: true, data: movieId });        
+            setTimeout(function() {
+                res.json({ success: true, data: movieId });
+            }, 1000);        
         } else {
             res.json({ success: false, msg: 'movie not found' });
         }
@@ -109,7 +113,11 @@ app.get('/image/:id', function (req, res) {
     
     var data = getMovieData(movieId);        
     if (data) {
-        res.sendFile(__dirname + '/img/' + movieId + (movieId == 9 ? '.png' : '.jpg'));
+        try {
+            res.sendFile(__dirname + '/img/' + movieId + (movieId == 9 ? '.png' : '.jpg'));
+        } catch(e) {
+            res.sendFile(__dirname + '/img/missing.jpg');
+        }
     } else {
         res.sendFile(__dirname + '/img/missing.jpg');
     }

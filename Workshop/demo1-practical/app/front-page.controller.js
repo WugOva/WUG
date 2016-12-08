@@ -85,13 +85,18 @@ export class FrontPageController extends Base {
                 this.handleEvents();
                 this.tilesController.handleEvents();
                 this.busy(false);
-            })
+            });
 
         return false;
     }
 
     onDescriptionChanged(movieId, description) {
-        return this.movieService.updateMovieDescription(movieId, description);
+        this.busy(true);
+        return this.movieService
+            .updateMovieDescription(movieId, description)
+            .then(() => {
+                this.busy(false) 
+            });
     }
     
 }
