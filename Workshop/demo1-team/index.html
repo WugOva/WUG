@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>  
+
+        <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="content"></div>
+            </div>
+        </div>
+    </div>
+
+  
+    <!-- user list template -->
+    <script type="text/template" id="movies-data-content">
+        
+        {{ _.each(tiles, function(tile) { }} 
+            <div class="col-xs-4">
+                <div class="card" id="{{= tile.id}}">
+                    <img class="card-img-top" src="http://localhost:1213/image/{{= tile.id}}" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">{{= tile.name}}</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Rok</b> {{= tile.year}} </li>
+                        <li class="list-group-item"><b>Hodnoceni</b> {{= tile.score}}% </li>
+                        <li class="list-group-item"><b>Pocet hodnoceni</b> {{= tile.rating}}x </li>
+                        <li class="list-group-item"><a href="#" class="card-link">detail</a></li>
+                        <li class="list-group-item description">
+                            <p class="description-readonly">
+                                {{= tile.description}}
+                            </p>
+                            
+                        </li>
+                    </ul>
+                </div>            
+            </div>
+        {{ }); }}
+    </script>
+
+
+    <script type="text/javascript" src="node_modules/systemjs/dist/system.js"></script>
+    <script type="text/javascript" src="build/bundle.js"></script>
+</body>
+</html>
